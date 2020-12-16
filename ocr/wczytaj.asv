@@ -1,0 +1,16 @@
+function w = wczytaj(ids)
+    fun = {@AO5RBlairBliss, @AO5RCircularityL, @AO5RCircularityS, @AO5RShape, @AO5RDanielsson, @AO5RFeret, @AO5RHaralick, @AO5RMalinowska};
+    w = zeros(get_length(ids), length(fun));
+    for x = 1:length(get_length(ids))
+        img = readimage(ids, x);
+        img = ~imbinarize(double(img)/255);
+        img = img(:,:,1);
+        a = regionprops(img, 'all');
+        for i = 1:length(a)
+            for j = 1:length(fun)
+                w(x,j) =  fun{j}(a(i).Image);
+            end
+        end
+    end
+    z
+end
