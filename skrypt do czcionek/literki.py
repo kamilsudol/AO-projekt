@@ -11,11 +11,11 @@ import glob
 '''
 
 fontSize = 20
-imgSize = (12, 20)
+imgSize = (20, 32)
 position = (0, 0)
 
 # All images will be stored in 'Synthetic_dataset' directory under current directory
-dataset_path = os.path.join(os.getcwd(), 'zestaw arial')
+dataset_path = os.path.join(os.getcwd(), 'nowy zestaw arial')
 if not os.path.exists(dataset_path):
     os.makedirs(dataset_path)
 
