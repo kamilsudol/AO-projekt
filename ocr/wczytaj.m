@@ -6,11 +6,16 @@ function w = wczytaj(ids)
         img = readimage(ids, x);
         img = ~imbinarize(double(img)/255);
         img = img(:,:,1);
+%         for y = 1:100
+        img = imresize(img, losuj(0.9, 2));
+        img = imrotate(img, losuj(0, 360));
         a = regionprops(img, 'all');
         for i = 1:length(a)
             for j = 1:length(fun)
                 w(x,j) =  fun{j}(a(i).Image);
             end
         end
+%         end
     end
+    w = w( ~any( isnan( w ) | isinf( w ), 2 ),: );
 end
