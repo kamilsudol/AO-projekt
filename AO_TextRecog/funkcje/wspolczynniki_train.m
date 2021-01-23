@@ -91,6 +91,7 @@ nn.layers{1}.transferFcn = 'logsig';
 nn.layers{2}.transferFcn = 'tansig';
 nn.trainFcn = 'trainlm';
 nn.performFcn = 'mse';
+nn.trainParam.max_fail = 25;
 nn = train(nn,trainin,trainout);
 
 ocr_final_8_new = nn;
